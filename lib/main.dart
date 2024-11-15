@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       initialAudioConfig: AudioConfig(),
       initialVideoConfig: VideoConfig(
         bitrate: 3000,
-        resolution: Resolution.RESOLUTION_1080,
+        resolution: Resolution.RESOLUTION_720,
         fps: 30,
       ),
       onConnectionSuccess: () {
@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
       await _controller.startStreaming(
         streamKey: _streamKeyController.text,
-        url: 'rtmp://35.154.14.164:1935/live',
+        url: 'rtmp://65.0.138.138:1935/live',
       );
     } catch (e) {
       print('Failed to start streaming: $e');
@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
     await Future.delayed(const Duration(seconds: 5));
     try {
       final response = await http.post(
-        Uri.parse('http://35.154.14.164:1233/start_stream'),
+        Uri.parse('http://65.0.138.138:1233/start_stream'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
